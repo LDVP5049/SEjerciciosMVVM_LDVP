@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SEjerciciosMVVM_LDVP.Vista.Vregistros">
+    <Grid RowDefinitions="80,*"
+          BackgroundColor="Red">
+        <Label Text="REGISTROS"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               FontSize="28"
+               FontAttributes="Bold"
+               TextColor="Black"/>
+        <CollectionView BackgroundColor="#141414"
+                        x:Name="Lista"
+                        Grid.Row="1"
+                        ItemsSource="{Binding Listaregistro}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid RowDefinitions="100,*"
+                              Margin="0,5,0,0">
+                        <Frame Grid.Row="1" WidthRequest="250"
+                                   HorizontalOptions="Center"
+                                   CornerRadius="15"
+                                   Margin="0,-38,0,0"
+                                   BackgroundColor="#1E1E1E">
+                            <StackLayout 
+                                Margin="0,70,0,0">
+                                <Label Text="Km:" TextColor="White" FontAttributes="Bold"/>
+                                <Label Text="{Binding Kilometros}" FontAttributes="Italic" TextColor="White"/>
+                                <Label Text="Kg:" TextColor="White" FontAttributes="Bold"/>
+                                <Label Text="{Binding Peso}"
+                                           CharacterSpacing="1"
+                                           FontSize="20"
+                                           Margin="0,0,0,5"
+                                           FontAttributes="Italic"
+                                           TextColor="White"/>
+                                <Button Text="{Binding Validacion}"
+                                            CornerRadius="30"
+                                            HorizontalOptions="Start"
+                                            TextTransform="None"
+                                            HeightRequest="40"
+                                            BackgroundColor="Red"/>
+                            </StackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={x:Reference Lista}, Path=BindingContext.IrEliminarcommand}" CommandParameter="{Binding .}" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                        <Image Source="{Binding Imagen}"
+                                   Grid.RowSpan="2"
+                                   HeightRequest="160"
+                                   VerticalOptions="StartAndExpand"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button Text="+"
+            Grid.Row="1"
+            HeightRequest="100"
+            WidthRequest="100"
+            VerticalOptions="End"
+            HorizontalOptions="End"
+            CornerRadius="50"
+            Margin="15"
+            FontSize="50"
+            FontAttributes="Bold"
+            BackgroundColor="Black"
+            TextColor="White"
+            Command="{Binding Registrarcommand}"/>
+        <Button Text="Refresh"
+            Grid.Row="1"
+            VerticalOptions="End"
+            HorizontalOptions="Start"
+            CornerRadius="10"
+            Margin="18"
+            FontSize="20"
+            FontAttributes="Italic"
+            BackgroundColor="Black"
+            TextColor="White"
+            Command="{Binding Registrocommand}"/>
+
+    </Grid>
+</ContentPage>

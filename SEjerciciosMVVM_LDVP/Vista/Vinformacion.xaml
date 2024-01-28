@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SEjerciciosMVVM_LDVP.Vista.Vinformacion">
+    <ContentPage.Content>
+        <StackLayout  BackgroundColor="#191819">
+            <StackLayout BackgroundColor="Red" Padding="15">
+                <Label Text="EJERCICIO" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" 
+                       FontSize="30" 
+                       TextColor="Black"
+                           FontAttributes="Bold"/>
+            </StackLayout>
+            <Label FontSize="30" 
+                   Text="DATOS" 
+                   HorizontalOptions="Center" 
+                   FontAttributes="Bold" 
+                   Margin="0,5,0,15"
+                       TextColor="White"/>
+
+            <Label Text="Distancia recorrida en kilimetros:" 
+                   FontSize="25" 
+                   FontAttributes="Italic"
+                       TextColor="White"/>
+            <Entry Placeholder="Kilometros recorridos"
+                       PlaceholderColor="LightGray"
+                       Keyboard="Numeric"
+                       Text="{Binding Kilometros}"
+                       TextColor="White"/>
+
+            <Label Text="Peso:" 
+                       FontSize="25" 
+                       FontAttributes="Italic"
+                       TextColor="White"/>
+            <Entry Placeholder="Peso en kilos"
+                   PlaceholderColor="LightGray"
+                   Keyboard="Numeric"
+                   Text="{Binding Peso}"
+                   TextColor="White"
+                   />
+            <Grid Padding="35,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Button Text="Registrar" CornerRadius="15" BorderColor="Black" BorderWidth="1" BackgroundColor="LightCyan" Command="{Binding Insertarcommand}" Grid.Column="1" Margin="5" IsEnabled="{Binding Calregi}"/>
+                <Button Text="Calcular" CornerRadius="15" BorderColor="Black" BorderWidth="1" BackgroundColor="OrangeRed" Command="{Binding Calcularcommand}" Grid.Column="0" Margin="5"/>
+                <Button Text="Opciones" CornerRadius="15" BorderColor="Black" BorderWidth="1" BackgroundColor="LightCyan" Command="{Binding Iniciocommand}" Grid.Column="2" Margin="5"/>
+
+                <Button Text="Estado: Meta" 
+                        CornerRadius="15"
+                        BorderColor="Black"
+                        BorderWidth="1"
+                        Command="{Binding ProcesoSimpleCommand}"
+                        Margin="5"
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        HorizontalOptions="Center">
+                    <Button.Triggers>
+                        <DataTrigger TargetType="Button" Binding="{Binding Validacion}" Value="Se logró">
+                            <Setter Property="BackgroundColor" Value="#00FF01" />
+                        </DataTrigger>
+                        <DataTrigger TargetType="Button" Binding="{Binding Validacion}" Value="Se falló">
+                            <Setter Property="BackgroundColor" Value="#F21D08"/>
+                        </DataTrigger>
+                    </Button.Triggers>
+                </Button>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

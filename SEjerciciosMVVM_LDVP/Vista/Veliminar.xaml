@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SEjerciciosMVVM_LDVP.Vista.Veliminar">
+    <ContentPage.Content>
+        <StackLayout Grid.Row="1" BackgroundColor="#191819">
+            <Grid RowDefinitions="100, *"
+                  Margin="0,10,0,0">
+                <Frame Grid.Row="1" WidthRequest="250"
+                       HorizontalOptions="Center"
+                       CornerRadius="15"
+                       Margin="0,-38,0,0"
+                       BackgroundColor="#252525">
+                    <StackLayout Margin="0,0,0,0"
+                                 BackgroundColor="#292929"
+                                 >
+                        <Label Text="ELIMINAR" FontSize="20" TextColor="Red" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,20,0,0"/>
+                        <Image Source="{Binding Imagen}"
+                                   Grid.RowSpan="2"
+                                   HeightRequest="160"
+                                   VerticalOptions="StartAndExpand"/>
+                        <Label Text="{Binding Peso}" TextColor="Red" Margin="20,0,0,0" FontSize="15" FontAttributes="Italic"/>
+                        <Label Text="{Binding Kilometros}" TextColor="Red" Margin="20,0,0,0" FontSize="15" FontAttributes="Italic"/>
+                        <Label Text="{Binding Validacion}" TextColor="Red" Margin="20,0,0,20" FontSize="15" FontAttributes="Italic"/>
+
+                    </StackLayout>
+                </Frame>
+            </Grid>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="10">
+                <Grid>
+                    <Button
+                  Text="Eliminar"
+                  BackgroundColor="Red"
+                  TextColor="Black"
+                  FontAttributes="Bold"
+                  BorderWidth="2"
+                  CornerRadius="15"
+                  FontSize="18"
+                  WidthRequest="135"
+                  HeightRequest="40"
+                  Command="{Binding Deletecommand}" 
+                  Grid.Row="0"/>
+                    <Button
+                  Text="Cancelar"
+                  BackgroundColor="#00FF01"
+                  TextColor="Black"
+                  FontAttributes="Bold"
+                  BorderWidth="2"
+                  CornerRadius="15"
+                  FontSize="18"
+                  WidthRequest="135"
+                  HeightRequest="40"
+                  Command="{Binding Regresarcommand}" 
+                  Grid.Row="1"/>
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SEjerciciosMVVM_LDVP.Vista.Navegar.Nav"
+             Title="Nav">
+
+    <StackLayout BackgroundColor="#353535">
+        <Grid BackgroundColor="#353535" Padding="0,60,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".5*" />
+                <ColumnDefinition Width=".5*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Text="Cardio" FontSize="20" Grid.Column="1" Grid.Row="1" BackgroundColor="Red" CornerRadius="15" FontAttributes="Bold" Command="{Binding Informacioncommand}"/>
+            <ImageButton Grid.Column="0" Grid.Row="0" Source="https://i.ibb.co/TKLtCm4/NOtas.png" BackgroundColor="#990000" CornerRadius="15"/>
+
+            <Button Text="Registros" FontSize="20" Grid.Column="1" Grid.Row="0" BackgroundColor="Red" CornerRadius="15" FontAttributes="Bold" Command="{Binding Registrocommand}"/>
+            <ImageButton Grid.Column="0" Grid.Row="1" Source="https://i.ibb.co/L0GWQxL/Pulmones.png" BackgroundColor="#990000" CornerRadius="15"/>
+        </Grid>
+        <Label Text="Desliza hacia la izquierda para cerrar" HorizontalOptions="Center" VerticalOptions="Start" Margin="0,0,0,20" TextColor="White" FontSize="15" FontAttributes="Italic"/>
+    </StackLayout>
+</ContentPage>
